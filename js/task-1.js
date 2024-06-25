@@ -1,25 +1,25 @@
-// Перш, ніж розв’язувати задачу, давай визначимося із новим терміном!
+// Напиши функцію isEnoughCapacity(products, containerSize), яка обчислює, чи помістяться всі товари в контейнер при пакуванні.
 
-// Термін slug — це зрозумілий людині унікальний ідентифікатор, який використовується у веб розробці для створення читабельних URL-адрес.
+// Функція оголошує два параметри:
 
-// Наприклад, замість того, щоб користувач побачив в адресному рядку mysite.com/posts/1q8fh74tx, можна зробити slug із назви статті. У результаті адреса буде приємнішою для сприйняття: mysite.com/posts/arrays-for-begginers.
+// products — об’єкт, у якому ключі містять назви товарів, а їхні значення — кількість цих товарів. Наприклад, { apples: 2, grapes: 4 }.
+// containerSize — число, максимальна кількість одиниць товарів, яку в себе може вмістити контейнер.
+// Функція має повернути результат перевірки, чи помістяться всі товари в контейнер. Тобто порахувати загальну кількість товарів в об’єкті products і повернути true, якщо вона менше або дорівнює containerSize, і false, якщо ні.
+function isEnoughCapacity(products, containerSize) {
+  let totalQuantity = 0;
 
-// Slug — це завжди рядок у нижньому регістрі, слова якого розділені тире.
-
-// З цим розібралися? А тепер давай нарешті виконувати задачу!
-
-// Напиши функцію slugify(title), яка приймає заголовок статті, параметр title і повертає slug, створений із цього рядка.
-
-// Значенням параметра title будуть рядки, слова яких розділені лише пробілами.
-// Усі символи slug повинні бути в нижньому регістрі.
-// Усі слова slug повинні бути розділені тире.
-// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
-function slugify(title) {
-  let lowerCaseTitle = title.toLowerCase();
-  let slug = lowerCaseTitle.split(" ").join("-");
-  return slug;
+  for (let product in products) {
+    totalQuantity += products[product];
+  }
+  {
+    return totalQuantity <= containerSize;
+  }
 }
-console.log(slugify("Arrays for begginers")); // "arrays-for-begginers"
-console.log(slugify("English for developer")); // "english-for-developer"
-console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
-console.log(slugify("How to become a JUNIOR developer in TWO WEEKS")); // "how-to-become-a-junior-developer-in-two-weeks"
+
+console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
+
+console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
+
+console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
+
+console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false

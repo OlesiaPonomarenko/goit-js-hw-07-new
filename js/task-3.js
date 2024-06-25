@@ -1,24 +1,35 @@
-// // Напиши функцію filterArray(numbers, value), яка приймає масив чисел (numbers) та значення (value) як параметри. Функція повинна повертати новий масив лише тих чисел із масиву numbers, які більші за значення value.
+// Об’єкт profile описує профіль користувача на ігровій платформі. У його властивостях зберігається ім’я профілю username та кількість активних годин playTime, проведених у грі.
 
-// // Усередині функції:
+// const profile = {
+//     username: "Jacob",
+//   playTime: 300,
+// };
 
-// // Створи порожній масив, у який будеш додавати підходящі числа.
-// // Використай цикл для ітерації кожного елемента масиву numbers.
-// // Використовуй умовний оператор if усередині циклу для перевірки кожного елемента и додавання до свого масиву.
-// // Поверни свій новий масив з підходящими числами як результат.
+// Доповни об’єкт profile методами для роботи з його властивостями.
 
-function filterArray(numbers, value) {
-  let searchNumbers = [];
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] > value) {
-      searchNumbers.push(numbers[i]);
-    }
-  }
-  return searchNumbers;
-}
+// Метод changeUsername(newName) повинен приймати рядок (нове ім’я) в параметр newName та змінювати значення властивості username на нове. Нічого не повертає.
+// Метод updatePlayTime(hours) повинен приймати число (кількість годин) у параметр hours та збільшити на нього значення властивості playTime. Нічого не повертає.
+// Метод getInfo() має повертати рядок формату <Username> has <amount> active hours!, де <Username> — це ім’я профілю, а <amount> — кількість ігрових годин.
+// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
 
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+const profile = {
+  username: "Jacob",
+  playTime: 300,
+  changeUsername: function (newName) {
+    this.username = newName;
+  },
+  updatePlayTime: function (hours) {
+    this.playTime += hours;
+  },
+  getInfo: function () {
+    return `${this.username} has ${this.playTime} active hours!`;
+  },
+};
+
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"

@@ -1,45 +1,80 @@
-// Напиши функцію calcAverageCalories(days), яка повертає середньодобове значення кількості калорій, які спортсмен споживав протягом тижня.
-// Функція очікує один параметр: days — масив об’єктів.Кожен об’єкт описує день тижня та кількість калорій calories, спожитих спортсменом, у цей день.Візьми код нижче і
-// встав після оголошення своєї функції для перевірки коректності її роботи.У консоль будуть виведені результати її викликів.
-function calcAverageCalories(days) {
-  // Перевіряємо, чи масив пустий
-  if (days.length === 0) {
-    return 0;
-  }
+// Напиши стрілочну функцію getUsersWithFriend(users, friendName),
+//   яка прийматиме два параметра:
+// перший параметр users — масив об’єктів користувачів
+// другий параметр friendName — ім’я друга для пошуку.
+// Функція має повертати масив усіх користувачів із масиву users,
+//   у яких є друг з іменем friendName.
+//   Друзі кожного користувача зберігаються у властивості friends.
+//   Якщо користувачів, у яких є такий других немає, то
+//   функція має повернути порожній масив.
 
-  let totalCalories = 0;
+// Поради:
 
-  for (let day of days) {
-    totalCalories += day.calories;
-  }
+// Метод filter() можна використовувати для створення
+// нового масиву з елементами, які задовольняють певну умову.
+// Використовуй метод includes() для перевірки, чи масив
+//  friends містить friendName.
+// Візьми код нижче і встав після оголошення своєї функції
+//  для перевірки коректності її роботи.У консоль будуть
+//  виведені результати її роботи.
 
-  let averageCalories = totalCalories / days.length;
+getUsersWithFriend = (users, friendName) => {
+  return users.filter((user) => user.friends.includes(friendName));
+};
 
-  return averageCalories;
-}
+const allUsers = [
+  {
+    name: "Moore Hensley",
+    friends: ["Sharron Pace"],
+  },
+  {
+    name: "Sharlene Bush",
+    friends: ["Briana Decker", "Sharron Pace"],
+  },
+  {
+    name: "Ross Vazquez",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+  },
+  {
+    name: "Elma Head",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+  },
+  {
+    name: "Carey Barr",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+  },
+  {
+    name: "Blackburn Dotson",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+  },
+  {
+    name: "Sheree Anthony",
+    friends: ["Goldie Gentry", "Briana Decker"],
+  },
+];
 
-console.log(
-  calcAverageCalories([
-    { day: "monday", calories: 3010 },
-    { day: "tuesday", calories: 3200 },
-    { day: "wednesday", calories: 3120 },
-    { day: "thursday", calories: 2900 },
-    { day: "friday", calories: 3450 },
-    { day: "saturday", calories: 3280 },
-    { day: "sunday", calories: 3300 },
-  ])
-); // 3180
+console.log(getUsersWithFriend(allUsers, "Briana Decker"));
+// [
+//   {
+//     name: "Sharlene Bush",
+//     friends: ["Briana Decker", "Sharron Pace"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
 
-console.log(
-  calcAverageCalories([
-    { day: "monday", calories: 2040 },
-    { day: "tuesday", calories: 2270 },
-    { day: "wednesday", calories: 2420 },
-    { day: "thursday", calories: 1900 },
-    { day: "friday", calories: 2370 },
-    { day: "saturday", calories: 2280 },
-    { day: "sunday", calories: 2610 },
-  ])
-); // 2270
+console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
+// [
+//   {
+//     name: "Elma Head",
+//     friends: ["Goldie Gentry", "Aisha Tran"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
 
-console.log(calcAverageCalories([])); // 0
+console.log(getUsersWithFriend(allUsers, "Adrian Cross")); // []

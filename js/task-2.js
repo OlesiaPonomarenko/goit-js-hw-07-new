@@ -1,80 +1,43 @@
-// Напиши стрілочну функцію getUsersWithFriend(users, friendName),
-//   яка прийматиме два параметра:
-// перший параметр users — масив об’єктів користувачів
-// другий параметр friendName — ім’я друга для пошуку.
-// Функція має повертати масив усіх користувачів із масиву users,
-//   у яких є друг з іменем friendName.
-//   Друзі кожного користувача зберігаються у властивості friends.
-//   Якщо користувачів, у яких є такий других немає, то
-//   функція має повернути порожній масив.
+// Створи клас Storage, який створюватиме об'єкти для управління складом товарів.
+// Клас очікує лише один аргумент — початковий масив
+// товарів, який записується до створеного об'єкта в приватну властивість items.
 
-// Поради:
+// Оголоси наступні методи класу:
 
-// Метод filter() можна використовувати для створення
-// нового масиву з елементами, які задовольняють певну умову.
-// Використовуй метод includes() для перевірки, чи масив
-//  friends містить friendName.
-// Візьми код нижче і встав після оголошення своєї функції
-//  для перевірки коректності її роботи.У консоль будуть
-//  виведені результати її роботи.
+// getItems() — повертає масив поточних товарів у
+// приватній властивості items.
+//     addItem(newItem) — приймає новий товар newItem і
+//  додає його до масиву товарів у приватну властивість items об'єкта.
+// removeItem(itemToRemove) — приймає рядок з назвою товару itemToRemove і
+// видаляє його з масиву товарів у приватній властивості items об'єкта.
 
-const getUsersWithFriend = (users, friendName) => {
-  return users.filter((user) => user.friends.includes(friendName));
-};
+// Візьми код нижче з ініціалізацією екземпляра й викликами методів
+// і встав його після оголошення класу для перевірки коректності роботи.
+// У консоль будуть виведені результати їх роботи.Будь ласка, нічого там не змінюй.
 
-const allUsers = [
-  {
-    name: "Moore Hensley",
-    friends: ["Sharron Pace"],
-  },
-  {
-    name: "Sharlene Bush",
-    friends: ["Briana Decker", "Sharron Pace"],
-  },
-  {
-    name: "Ross Vazquez",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-  },
-  {
-    name: "Elma Head",
-    friends: ["Goldie Gentry", "Aisha Tran"],
-  },
-  {
-    name: "Carey Barr",
-    friends: ["Jordan Sampson", "Eddie Strong"],
-  },
-  {
-    name: "Blackburn Dotson",
-    friends: ["Jacklyn Lucas", "Linda Chapman"],
-  },
-  {
-    name: "Sheree Anthony",
-    friends: ["Goldie Gentry", "Briana Decker"],
-  },
-];
+class Storage {
+  constructor(parameters) {
+    this.items = parameters;
+  }
+  getItems(items) {
+    return this.items;
+  }
+  addItem(newItem) {
+    return this.items.push(newItem);
+  }
+  removeItem(itemToRemove) {
+    this.items = this.items.filter((item) => item !== itemToRemove);
+  }
+}
 
-console.log(getUsersWithFriend(allUsers, "Briana Decker"));
-// [
-//   {
-//     name: "Sharlene Bush",
-//     friends: ["Briana Decker", "Sharron Pace"]
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"]
-//   }
-// ]
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 
-console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
-// [
-//   {
-//     name: "Elma Head",
-//     friends: ["Goldie Gentry", "Aisha Tran"]
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"]
-//   }
-// ]
+storage.addItem("Droid");
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
 
-console.log(getUsersWithFriend(allUsers, "Adrian Cross")); // []
+storage.removeItem("Prolonger");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+storage.removeItem("Scaner");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]

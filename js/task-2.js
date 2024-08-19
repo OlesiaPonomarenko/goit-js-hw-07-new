@@ -16,17 +16,19 @@
 // У консоль будуть виведені результати їх роботи.Будь ласка, нічого там не змінюй.
 
 class Storage {
+  #items;
+
   constructor(parameters) {
-    this.items = parameters;
+    this.#items = parameters;
   }
   getItems(items) {
-    return this.items;
+    return this.#items;
   }
   addItem(newItem) {
-    return this.items.push(newItem);
+    return this.#items.push(newItem);
   }
   removeItem(itemToRemove) {
-    this.items = this.items.filter((item) => item !== itemToRemove);
+    this.#items = this.#items.filter((item) => item !== itemToRemove);
   }
 }
 

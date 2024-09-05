@@ -60,13 +60,12 @@ function createBoxes(amount) {
     boxes.push(box);
   }
 
-  // Додаємо всі елементи до контейнера за одну операцію
   boxesContainer.append(...boxes);
 }
 
 function destroyBoxes() {
   const boxesContainer = document.querySelector("#boxes");
-  boxesContainer.innerHTML = ""; // Очищаємо вміст контейнера
+  boxesContainer.innerHTML = "";
 }
 
 const input = document.querySelector("#controls input");
@@ -80,7 +79,7 @@ createButton.addEventListener("click", () => {
     createBoxes(amount);
   }
 
-  input.value = ""; // Очищення значення інпуту
+  input.value = "";
 });
 
 destroyButton.addEventListener("click", () => {

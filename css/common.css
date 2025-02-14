@@ -37,3 +37,27 @@ img {
     height: 300px;
     margin-bottom: 40px;
 }
+
+.change-color {
+    width: 148px;
+    height: 40px;
+    background-color: #4E75FF;
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
+}
+
+p {
+    color: #2E2F42;
+    text-align: center;
+}
+
+.widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 345px;
+    height: 280px;
+    margin: 0 auto;
+}

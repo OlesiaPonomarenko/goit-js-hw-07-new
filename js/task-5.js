@@ -19,18 +19,19 @@
 // Фон на <body> задається тільки після кліку на button.change-color
 // При кожному кліку на елемент button.change-color фон <body> зафарбовується новим рандомним кольором
 // На <body> і span.color значення одного й того самого кольору
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215)
-//     .toString(16)
-//     .padStart(6, 0)}`;
-// }
 
-// const button = document.querySelector(".change-color");
-// const colorSpan = document.querySelector(".color");
-// const body = document.body;
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
 
-// button.addEventListener("click", () => {
-//   const newColor = getRandomHexColor();
-//   body.style.backgroundColor = newColor;
-//   colorSpan.textContent = newColor;
-// });
+const button = document.querySelector(".change-color");
+const colorSpan = document.querySelector(".color");
+const body = document.body;
+
+button.addEventListener("click", () => {
+  const newColor = getRandomHexColor();
+  body.style.backgroundColor = newColor;
+  colorSpan.textContent = newColor;
+});

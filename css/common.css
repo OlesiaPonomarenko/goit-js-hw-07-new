@@ -1,5 +1,24 @@
-.animals {
+div {
+    border-radius: 5px;
     width: 392px;
-    height: 264px;
-    background-color: 808080;
+    background-color: rgb(238, 232, 232);
+    padding-bottom: 5px;
+}
+
+ul {
+  list-style: none;  
+}
+
+.listItem {
+    border: 1px solid grey;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-right: 35px;
+    border-radius: 4px;
+}
+
+.h2 {
+    margin-left: 23px;
+    padding: 20px;
+    margin-bottom: -10px;
 }

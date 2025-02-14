@@ -61,3 +61,16 @@ p {
     height: 280px;
     margin: 0 auto;
 }
+
+#controls {
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+#boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}

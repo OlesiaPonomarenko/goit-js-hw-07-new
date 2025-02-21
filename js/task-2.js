@@ -40,13 +40,13 @@ const images = [
 
 const ulEl = document.querySelector(".gallery");
 
-images.forEach((image) {
+images.forEach((image) => {
 
   const liEl = document.createElement("li");
 
   const imgEl = document.createElement("img");
 
-  imgEl.srs = image.url;
+  imgEl.src = image.url;
   imgEl.alt = image.alt;
   
    liEl.append(imgEl);

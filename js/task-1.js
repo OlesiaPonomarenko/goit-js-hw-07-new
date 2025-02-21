@@ -10,12 +10,19 @@
 // Дані за кожною категорією були отримані й виведені в консоль у тілі циклу або методу forEach()
 // У консолі має бути виведено наступне повідомлення:
 
-const categoriesList = document.querySelector("#categories");
-const categoriesItems = categoriesList.querySelectorAll(".item");
-console.log(`Number of categories: ${categoriesItems.length}`);
-categoriesItems.forEach((item) => {
-  const categoryTitle = item.querySelector("h2").textContent;
-  const elementsCount = item.querySelectorAll("li").length;
-  console.log(`Category: ${categoryTitle}`);
-  console.log(`Elements: ${elementsCount}`);
+const ulEl = document.querySelectorAll('.item');
+
+console.log('Number of categories:', ulEl.length);
+
+ulEl.forEach(item => {
+    const title = item.querySelector('h2').textContent;
+
+    const itemCount = item.querySelectorAll('li').length;
+
+     console.log(`Category: ${title}`);
+  console.log(`Elements: ${itemCount}`);
 });
+
+const liEl = document.querySelector("div");
+
+console.log(liEl.innerText);

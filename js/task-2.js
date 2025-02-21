@@ -38,15 +38,21 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
-const galleryMarkup = images
-  .map((image) => {
-    return `
-      <li class="gallery-item">
-        <img src="${image.url}" alt="${image.alt}" class="gallery-image"/>
-      </li>
-    `;
-  })
-  .join("");
+const ulEl = document.querySelector(".gallery");
 
-gallery.insertAdjacentHTML("beforeend", galleryMarkup);
+images.forEach((image) {
+
+  const liEl = document.createElement("li");
+
+  const imgEl = document.createElement("img");
+
+  imgEl.srs = image.url;
+  imgEl.alt = image.alt;
+  
+   liEl.append(imgEl);
+
+  ulEl.append(liEl);
+
+});
+
+
